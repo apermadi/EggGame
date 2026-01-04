@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://rc2f1a1xcdrp"]
+
+[ext_resource type="Script" uid="uid://hjmjv6svlcy1" path="res://item_type_manager.gd" id="1_7fmhn"]
+[ext_resource type="Texture2D" uid="uid://dl56xtk7h2ktt" path="res://icon.svg" id="1_gxbh7"]
+[ext_resource type="Script" uid="uid://bqyhn455can2l" path="res://player.gd" id="1_vo8sw"]
+[ext_resource type="Script" uid="uid://bq8x62lv71x6x" path="res://path.gd" id="3_883nb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk8ey"]
+size = Vector2(1024, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8sw"]
+size = Vector2(128, 128)
+
+[sub_resource type="Curve2D" id="Curve2D_vo8sw"]
+bake_interval = 512.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, 100, 0, 0, 0, 0, 992, 100)
+}
+point_count = 2
+
+[node name="Prototype" type="Node2D"]
+
+[node name="ItemTypeManager" type="Node" parent="."]
+script = ExtResource("1_7fmhn")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1028.0
+offset_bottom = 767.0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99600005
+anchor_bottom = 1.001
+offset_right = 0.11193848
+offset_bottom = 0.23297119
+color = Color(0.34654382, 0.4261994, 0.5727657, 1)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-1, 586)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(513, 86)
+shape = SubResource("RectangleShape2D_nk8ey")
+debug_color = Color(0, 0.6, 0.69803923, 0.17254902)
+
+[node name="Control" type="Control" parent="Ground"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -10.0
+offset_right = 1027.0
+offset_bottom = 182.0
+
+[node name="ColorRect" type="ColorRect" parent="Ground/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = -0.055000003
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_left = -0.02700007
+offset_top = 10.559988
+offset_right = 0.053955078
+color = Color(0.2627451, 0.87058824, 0.47843137, 0.78039217)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(512, 512)
+collision_layer = 2
+script = ExtResource("1_vo8sw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_gxbh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="DropSource" type="Path2D" parent="."]
+curve = SubResource("Curve2D_vo8sw")
+script = ExtResource("3_883nb")
+
+[node name="Timer" type="Timer" parent="DropSource"]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="DropSource/Timer" to="DropSource" method="_on_timer_timeout"]
