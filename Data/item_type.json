@@ -1,0 +1,48 @@
+{
+	"list":[
+		{
+			"name": "hosne",
+			"path": "res://Sprites/egg_game_horse.png"
+		},
+		{
+			"name": "squid",
+			"path": "res://Sprites/egg_game_squid.png"
+		},
+		{
+			"name": "gecko",
+			"path": ""
+		},
+		{
+			"name": "seven gnomes in a trenchcoat",
+			"path": ""
+		},
+		{
+			"name": "chicken",
+			"path": ""
+		},
+		{
+			"name": "HELP ME",
+			"path": ""
+		},
+		{
+			"name": "truck",
+			"path": ""
+		},
+		{
+			"name": "your future will",
+			"path": "res://Sprites/egg_game_will.png"
+		},
+		{
+			"name": "rock",
+			"path": "res://Sprites/egg_game_rock.png"
+		},
+		{
+			"name": "frog",
+			"path": ""
+		},
+		{
+			"name": "jawfish with his future children",
+			"path": ""
+		}
+	]
+}

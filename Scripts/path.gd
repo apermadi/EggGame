@@ -10,7 +10,7 @@ var spawn_point : float
 
 
 func _enter_tree() -> void:
-	item_scene = preload("res://item.tscn")
+	item_scene = preload("res://Scenes/item.tscn")
 	first_point = get_curve().get_baked_points()[0]
 	last_point = get_curve().get_baked_points()[-1]
 

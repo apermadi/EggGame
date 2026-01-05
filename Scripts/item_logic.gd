@@ -30,6 +30,7 @@ func _on_player_detection_body_entered(_body: Node2D) -> void:
 	display_timer.start()
 	display_item.visible = true
 	display_item.get_node("Label").text = type 
+	display_item.get_node("Sprite2D").texture = ItemTypeManager.get_item_texture()
 	get_tree().paused = true
 
 
