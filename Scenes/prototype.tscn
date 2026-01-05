@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rc2f1a1xcdrp"]
+[gd_scene load_steps=9 format=3 uid="uid://rc2f1a1xcdrp"]
 
 [ext_resource type="Script" uid="uid://bqyhn455can2l" path="res://Scripts/player.gd" id="1_6koui"]
 [ext_resource type="Texture2D" uid="uid://dtm3uopl063o1" path="res://Sprites/egg_game_knight.png" id="2_6koui"]
@@ -13,9 +13,15 @@ size = Vector2(87, 174)
 [sub_resource type="Curve2D" id="Curve2D_vo8sw"]
 bake_interval = 512.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 32, 100, 0, 0, 0, 0, 992, 100)
+"points": PackedVector2Array(0, 0, 0, 0, 96, 100, 0, 0, 0, 0, 932, 100)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6koui"]
+size = Vector2(40, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mrnv"]
+size = Vector2(80, 769)
 
 [node name="Prototype" type="Node2D"]
 
@@ -79,8 +85,21 @@ curve = SubResource("Curve2D_vo8sw")
 script = ExtResource("3_uurmw")
 
 [node name="Timer" type="Timer" parent="DropSource"]
-wait_time = 0.5
+wait_time = 1.5
 one_shot = true
 autostart = true
+
+[node name="LeftWorldBox" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWorldBox"]
+position = Vector2(-4, 384)
+shape = SubResource("RectangleShape2D_6koui")
+
+[node name="RightWorldBox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWorldBox"]
+position = Vector2(1048, 383.5)
+shape = SubResource("RectangleShape2D_3mrnv")
 
 [connection signal="timeout" from="DropSource/Timer" to="DropSource" method="_on_timer_timeout"]
