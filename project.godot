@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 ItemTypeManager="*res://Scripts/item_type_manager.gd"
+CollectionManager="*res://collection_manager.gd"
 
 [display]
 

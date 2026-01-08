@@ -15,8 +15,7 @@ func _ready() -> void:
 
 
 func get_item_name() -> String:
-	# TODO: move this when sprite file paths exist
-	index = randi_range(0, item_list.list.size()-1)
+	index = randi_range(0, get_list_size())
 	return item_list.list[index].name
 
 
@@ -25,3 +24,11 @@ func get_item_texture() -> Texture2D:
 		return load("res://Sprites/icon.svg")
 	else:
 		return load(item_list.list[index].path)
+
+
+func get_list_size() -> int:
+	return item_list.list.size()-1
+
+
+func get_list_name(i : int) -> String:
+	return item_list.list[i].name
