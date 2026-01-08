@@ -10,23 +10,23 @@
 		},
 		{
 			"name": "gecko",
-			"path": ""
+			"path": "res://Sprites/egg_game_gecko.png"
 		},
 		{
 			"name": "seven gnomes in a trenchcoat",
 			"path": "res://Sprites/egg_game_gnomes.png"
 		},
 		{
-			"name": "chicken",
-			"path": ""
+			"name": "silkie",
+			"path": "res://Sprites/egg_game_silkie.png"
 		},
 		{
 			"name": "HELP ME",
-			"path": ""
+			"path": "res://Sprites/egg_game_hand.png"
 		},
 		{
 			"name": "truck",
-			"path": ""
+			"path": "res://Sprites/egg_game_truck.png"
 		},
 		{
 			"name": "your future will",
@@ -38,11 +38,11 @@
 		},
 		{
 			"name": "frog",
-			"path": ""
+			"path": "res://Sprites/egg_game_frog.png"
 		},
 		{
 			"name": "jawfish with his future children",
-			"path": ""
+			"path": "res://Sprites/egg_game_jawfish.png"
 		}
 	]
 }
