@@ -15,6 +15,7 @@ script = ExtResource("1_76mu4")
 
 [node name="ItemCollider" type="RigidBody2D" parent="."]
 collision_layer = 0
+collision_mask = 0
 
 [node name="GroundDetection" type="Area2D" parent="ItemCollider"]
 collision_layer = 0
@@ -24,7 +25,7 @@ shape = SubResource("CircleShape2D_kg5e7")
 
 [node name="PlayerDetection" type="Area2D" parent="ItemCollider"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemCollider/PlayerDetection"]
 shape = SubResource("CircleShape2D_kg5e7")
@@ -69,5 +70,5 @@ position = Vector2(521, 343)
 texture = ExtResource("2_u06aw")
 
 [connection signal="body_entered" from="ItemCollider/GroundDetection" to="." method="_on_ground_detection_body_entered"]
-[connection signal="body_entered" from="ItemCollider/PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="area_entered" from="ItemCollider/PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]

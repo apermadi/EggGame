@@ -2,6 +2,8 @@ extends Path2D
 
 @onready var timer : Timer = $Timer
 
+@export var is_center_drop : bool = false
+
 var item_scene : PackedScene
 var item : Item
 var first_point : Vector2
@@ -16,7 +18,10 @@ func _enter_tree() -> void:
 
 
 func _on_timer_timeout() -> void:
-	spawn_point = randf_range(first_point.x, last_point.x)
+	if (is_center_drop):
+		spawn_point = (first_point.x + last_point.x) / 2.0
+	else:
+		spawn_point = randf_range(first_point.x, last_point.x)
 	
 	item = item_scene.instantiate()
 	item.position = Vector2(spawn_point, first_point.y)

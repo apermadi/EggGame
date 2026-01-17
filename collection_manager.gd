@@ -1,6 +1,5 @@
 extends Node
 
-
 class pair:
 	var first
 	var second
@@ -13,10 +12,11 @@ func _ready() -> void:
 		info.first = item.path
 		info.second = 0
 		collection[item.name] = info
-	add_item("gecko")
-	
-	print(collection.get("gecko"))
 
 
-func add_item(item_name : String) -> void:
-	collection.item_name = 200
+func add_to_count(item_name : String) -> void:
+	collection.get(item_name).second += 1 
+
+
+func get_item_count(item_name : String) -> int:
+	return collection.get(item_name).second

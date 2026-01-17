@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dwbllkxm52hov"]
+
+[node name="Menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 1.0070001
+offset_left = 304.0
+offset_top = 288.0
+offset_right = -305.02405
+offset_bottom = -373.3761
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[rainbow freq=0.2][wave amp=35]hatch thine catch![/wave][/rainbow]"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -24,13 +24,17 @@ func _on_ground_detection_body_entered(_body: Node2D) -> void:
 	queue_free()
 
 
-func _on_player_detection_body_entered(_body: Node2D) -> void:
+func _on_player_detection_area_entered(_area: Area2D) -> void:
 	visible = false
 	
 	display_timer.start()
 	display_item.visible = true
 	display_item.get_node("Label").text = type 
 	display_item.get_node("Sprite2D").texture = ItemTypeManager.get_item_texture()
+	
+	CollectionManager.add_to_count(type)
+	print(type + ": " + str(CollectionManager.get_item_count(type)))
+	
 	get_tree().paused = true
 
 

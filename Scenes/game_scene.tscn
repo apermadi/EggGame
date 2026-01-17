@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmus6pxit3ebs"]
+[gd_scene load_steps=10 format=3 uid="uid://dmus6pxit3ebs"]
 
 [ext_resource type="Script" uid="uid://bqyhn455can2l" path="res://Scripts/player.gd" id="1_6h5vk"]
 [ext_resource type="Texture2D" uid="uid://dtm3uopl063o1" path="res://Sprites/egg_game_knight.png" id="2_fiftr"]
@@ -8,7 +8,10 @@
 size = Vector2(1024, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fmhe"]
-size = Vector2(87, 174)
+size = Vector2(52, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h5vk"]
+size = Vector2(87, 24)
 
 [sub_resource type="Curve2D" id="Curve2D_7iton"]
 bake_interval = 512.0
@@ -77,13 +80,24 @@ script = ExtResource("1_6h5vk")
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_fiftr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-3.5, -23)
+[node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, 52)
 shape = SubResource("RectangleShape2D_2fmhe")
+
+[node name="ItemCollider" type="Area2D" parent="Player"]
+position = Vector2(0, -96)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemCollider"]
+position = Vector2(-3.5, -2)
+shape = SubResource("RectangleShape2D_6h5vk")
+debug_color = Color(0.7497416, 0.26575032, 0.9255466, 0.41960785)
 
 [node name="DropSource" type="Path2D" parent="."]
 curve = SubResource("Curve2D_7iton")
 script = ExtResource("3_1ixah")
+is_center_drop = true
 
 [node name="Timer" type="Timer" parent="DropSource"]
 wait_time = 1.5
